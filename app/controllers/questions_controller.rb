@@ -18,11 +18,10 @@ class QuestionsController < ApplicationController
   	end
   end
 
-
   private
 
   def question_params
-  	params.require(:question).permot(:title, :content, :user_id)
+  	params.require(:question).permit(:title, :content, :user_id)
   end
-  
+
 end
