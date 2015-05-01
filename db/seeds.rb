@@ -1,5 +1,5 @@
 
-user = User.create(name: "mrpants", password: "yolo")
+user = User.create(name: "Charles", password: "yolo")
 
 5.times do
   question = user.questions.create(title: "This is a question?", content: "This is a questions content")
@@ -8,5 +8,5 @@ user = User.create(name: "mrpants", password: "yolo")
     answer.responses.create(content: "this is a response", user_id: user.id)
     question.responses.create(content: "this is a response", user_id: user.id)
   end
-
+    question.tags.create(name: "Hooray!")
 end
