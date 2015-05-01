@@ -20,6 +20,8 @@ class AnswersController < ApplicationController
     end
   end
 
+  private
+
   def answer_params
     params.require(:answer).permit(:content).merge(user: current_user)
   end
