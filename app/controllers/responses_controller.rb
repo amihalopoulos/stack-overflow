@@ -30,6 +30,12 @@ class ResponsesController < ApplicationController
 
   end
 
+  def destroy
+    response = Response.find(params[:id])
+    response.destroy
+    redirect_to question_path(response.responsible_id)
+  end
+
   private
 
   def response_params

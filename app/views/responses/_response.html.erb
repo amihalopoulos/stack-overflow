@@ -2,6 +2,8 @@
   <ul>
     <li>
       <%= response.content %> | Posted by: <%= link_to response.user.name, user_path(response.user) %>
+      <br>
+       <%= button_to "Delete", response_path(response), :method => :delete %>
     </li>
   </ul>
 </div>
