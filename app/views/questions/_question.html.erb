@@ -3,7 +3,8 @@
   <ul>
     <li>Content: <%= @question.content %></li>
     <li>
-      Respones: <br> <%= render @question.responses %>
+      Tags: <%= render @question.tags %>
+      Responses: <br> <%= render @question.responses %>
     </li>
     <%= link_to "New Response", new_response_path(question_id: @question) %>
     <li>
