@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+<<<<<<< HEAD
   def new
   end
 
@@ -16,6 +17,12 @@ class QuestionsController < ApplicationController
   		flash[:error] = "Question did not get added"
   		redirect_to question_path(question)
   	end
+  end
+
+  def destroy
+    question = Question.find(params[:id])
+    question.destroy
+    redirect_to questions_path
   end
 
   private
