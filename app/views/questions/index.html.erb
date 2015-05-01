@@ -1,0 +1,11 @@
+<div class="home">
+  <h1> Swag Overflow </h1>
+  <ul>
+    <% @questions.each do |question| %>
+    <li> <%= link_to question.title, question_path(question.id) %> Votes: <%=question.votes.count %> | Answers: <%= question.answers.count %>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
