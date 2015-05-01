@@ -1,0 +1,9 @@
+<div class="answers">
+  <ul>
+    <li>
+      <%= answer.content %> | Posted by: <%= link_to answer.user.name, user_path(answer.user) %> | Votes: <%= answer.votes.count %>
+      <br>
+      <%= link_to "New Comment", new_response_path %>
+    </li>
+  </ul>
+</div>
