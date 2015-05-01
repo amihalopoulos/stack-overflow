@@ -11,8 +11,7 @@ class AnswersController < ApplicationController
 
   def create
     @question = Question.find(params[:question_id])
-    @answer = @question.answers.build(answer_params)
-    @answer.update(user: current_user)
+    @answer = @question.answers.new(answer_params)
 
     if @answer.save
       redirect_to question_path(@question)
@@ -22,6 +21,6 @@ class AnswersController < ApplicationController
   end
 
   def answer_params
-    params.require(:answer).permit(:content)
+    params.require(:answer).permit(:content).merge(user: current_user)
   end
 end
