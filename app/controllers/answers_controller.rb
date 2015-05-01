@@ -6,6 +6,7 @@ class AnswersController < ApplicationController
     else
       flash[:error] = "You must be signed in"
       redirect_to signin_path
+    end
   end
 
   def create
