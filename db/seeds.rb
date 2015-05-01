@@ -7,6 +7,6 @@ user = User.create(name: "Charles", password: "yolo")
     answer = question.answers.create(content: "this is an answer", user_id: user.id, question_id: question.id, user_id: user.id)
     answer.responses.create(content: "this is a response", user_id: user.id)
     question.responses.create(content: "this is a response", user_id: user.id)
+    question.tags.create(name: Faker::Hacker.adjective)
   end
-    question.tags.create(name: "Hooray!")
 end
