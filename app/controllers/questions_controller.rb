@@ -11,15 +11,28 @@ class QuestionsController < ApplicationController
   def new
   end
 
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def create
-  	question = Question.new(question_params)
-  	question.user_id ||= session[:user_id]
-  	if question.save
-  		redirect_to question_path(question)
-  	else
-  		flash[:error] = "Question did not get added"
-  		redirect_to question_path(question)
-  	end
+    question = Question.new(question_params)
+    question.user_id ||= session[:user_id]
+    if question.save
+      redirect_to question_path(question)
+    else
+      flash[:error] = "Question did not get added"
+      redirect_to question_path(question)
+    end
+  end
+
+  def update
+    @question = Question.find(params[:id])
+    if @question.update_attributes(question_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -28,10 +41,12 @@ class QuestionsController < ApplicationController
     redirect_to questions_path
   end
 
+
+
   private
 
   def question_params
-  	params.require(:question).permit(:title, :content, :user_id)
+    params.require(:question).permit(:title, :content, :user_id)
   end
 
 end
