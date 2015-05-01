@@ -33,15 +33,15 @@ ActiveRecord::Schema.define(version: 20150430213233) do
   end
 
   create_table "responses", force: :cascade do |t|
-    t.text     "content",        null: false
+    t.text     "content",          null: false
     t.integer  "user_id"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.integer  "responsible_id"
+    t.string   "responsible_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
-  add_index "responses", ["imageable_type", "imageable_id"], name: "index_responses_on_imageable_type_and_imageable_id", using: :btree
+  add_index "responses", ["responsible_type", "responsible_id"], name: "index_responses_on_responsible_type_and_responsible_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                        null: false
