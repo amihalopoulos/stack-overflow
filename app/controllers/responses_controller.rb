@@ -1,2 +1,3 @@
 class ResponsesController < ApplicationController
+	
 end

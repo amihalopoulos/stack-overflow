@@ -4,4 +4,24 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
+  def new
+  end
+
+  def create
+  	question = Question.new(question_params)
+  	question.user_id ||= session[:user_id]
+  	if question.save
+  		redirect_to question_path(question)
+  	else
+  		flash[:error] = "Question did not get added"
+  		redirect_to question_path(question)
+  	end
+  end
+
+  private
+
+  def question_params
+  	params.require(:question).permit(:title, :content, :user_id)
+  end
+
 end
