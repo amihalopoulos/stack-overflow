@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   end
   
   resources :responses
+
+  get 'signin' => 'auth#signin_form'
+  post 'signin' => 'auth#signin'
+  get 'signout' => 'auth#signout'
 end
