@@ -1,0 +1,15 @@
+<% if @question %>
+  <%= form_for [@response] do |f| %>
+    <%= f.hidden_field :question_id, :value => @question.id.to_i %>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %><br>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% else %>
+  <%= form_for [@response] do |f| %>
+    <%= f.hidden_field :answer_id, :value => @answer.id.to_i %>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %><br>
+    <%= f.submit "Submit" %>
+  <% end %>
+<% end %>
