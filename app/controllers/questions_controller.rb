@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  before_action :find_question, only: [:show, :edit, :update, :destroy]
+
   def index
     @questions = Question.all
   end
@@ -12,12 +14,13 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def create
     question = Question.new(question_params)
     question.user_id ||= session[:user_id]
+    # new tags for each tag param sent in.
+
     if question.save
       redirect_to question_path(question)
     else
@@ -27,8 +30,7 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
-    if @question.update_attributes(question_params)
+    if @question.update(question_params)
       redirect_to question_path(@question)
     else
       render :edit
@@ -36,14 +38,15 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    question = Question.find(params[:id])
-    question.destroy
+    @question.destroy
     redirect_to questions_path
   end
 
-
-
   private
+
+  def find_question
+    @question = Question.find(params[:id])
+  end
 
   def question_params
     params.require(:question).permit(:title, :content, :user_id)
