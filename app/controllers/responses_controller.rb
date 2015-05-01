@@ -1,11 +1,12 @@
 class ResponsesController < ApplicationController
-	def new
+
+  def new
     if current_user && params[:question_id]
-        @question = Question.find(params[:question_id])
-        @response = @question.responses.new
+      @question = Question.find(params[:question_id])
+      @response = @question.responses.new
     elsif current_user && params[:answer_id]
-        @answer = Answer.find(params[:answer_id])
-        @response = @answer.responses.new
+      @answer = Answer.find(params[:answer_id])
+      @response = @answer.responses.new
     else
       flash[:error] = "You must be signed in"
       redirect_to signin_path
@@ -28,6 +29,19 @@ class ResponsesController < ApplicationController
       render :new
     end
 
+  end
+
+  def edit
+    @response = Response.find(params[:id])
+  end
+
+  def update
+    @response = Response.find(params[:id])
+    if @response.update_attributes(response_params)
+      redirect_to question_path(@response.responsible_id)
+    else
+      render :edit
+    end
   end
 
   def destroy
