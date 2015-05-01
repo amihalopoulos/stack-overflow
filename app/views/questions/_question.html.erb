@@ -2,7 +2,13 @@
   <h3> Title: <%= @question.title %> </h3>
   <ul>
     <li>Content: <%= @question.content %></li>
-    <li>Respones: <%= render @respones %></li>
-    <li>Answers: <%= render @answers %></li>
+    <li>
+      Respones: <br> <%= render @question.responses %>
+    </li>
+    <%= link_to "New Response", new_response_path %>
+    <li>
+      Answers: <br> <%= render @question.answers %>
+    </li>
+    <%= link_to "New Answer", new_question_answer_path(@question) %>
   </ul>
 </div>
