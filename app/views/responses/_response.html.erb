@@ -3,8 +3,10 @@
     <li>
       <%= response.content %> | Posted by: <%= link_to response.user.name, user_path(response.user) %>
       <br>
+      <% if current_user == response.user %>
       <%= button_to "Edit", edit_response_path(response), :method => :get %>
       <%= button_to "Delete", response_path(response), :method => :delete %>
+      <% end %>
     </li>
   </ul>
 </div>
