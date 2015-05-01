@@ -20,17 +20,17 @@ class AnswersController < ApplicationController
     end
   end
 
-  private
-
-  def answer_params
-    params.require(:answer).permit(:content).merge(user: current_user)
-  end
-
   def destroy
     question = Question.find(params[:question_id])
     answer = question.answers.find(params[:id])
     answer.destroy
     redirect_to question_path(question)
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:content).merge(user: current_user)
   end
 
 end
