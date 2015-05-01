@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   resources :users
 
   resources :questions do
-    resources :answers, only: [:new, :edit, :delete]
+    resources :answers, only: [:new, :create, :edit, :delete]
   end
-  
+
   resources :responses
 
   get 'signin' => 'auth#signin_form'
