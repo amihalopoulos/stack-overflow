@@ -3,6 +3,7 @@
     <li>
       <%= answer.content %> | Posted by: <%= link_to answer.user.name, user_path(answer.user) %> | Votes: <%= answer.votes.count %>
       <br>
+      <%= button_to "Edit", edit_question_answer_path(@question, answer), :method => :get %>
       <%= button_to "Delete", question_answer_path(@question, answer), :method => :delete %>
       <%= link_to "New Comment", new_response_path(answer_id: answer) %>
     </li>
