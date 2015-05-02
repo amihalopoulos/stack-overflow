@@ -20,10 +20,19 @@ class AnswersController < ApplicationController
     end
   end
 
-  private
+  def edit
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+  end
 
-  def answer_params
-    params.require(:answer).permit(:content).merge(user: current_user)
+  def update
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+    if @answer.update_attributes(answer_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -31,6 +40,12 @@ class AnswersController < ApplicationController
     answer = question.answers.find(params[:id])
     answer.destroy
     redirect_to question_path(question)
+  end
+
+  private
+
+  def answer_params
+    params.require(:answer).permit(:content).merge(user: current_user)
   end
 
 end
