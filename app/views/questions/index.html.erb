@@ -5,13 +5,17 @@
     	<div class="col-md-12">
     	<span class="question-stats col-md-3">
     		<span class="stat col-md-3">
-	     	<%=question.votes.count %> Votes
+	     	  <% count = 0 %>
+          <% question.votes.each do |vote| %>
+            <% count += vote.value %>
+          <% end %>
+          Votes: <%=  count %>
 	     	</span>
 	     	<span class="stat col-md-3">
-	     		<%= question.answers.count %> Answers 
+	     		<%= question.answers.count %> Answers
 	     	</span>
 	     	<span class="stat col-md-3">
-	     		<%= question.views %> views
+	     		<%= question.unique_impression_count.values.join %> views
 	      </span>
      	</span>
 	     	<div class=" question-title col-md-9">
