@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
   has_many :responses, as: :responsible
   validates :title, :content, presence: true
 
-  def set_tags(tags)
+  def all_tags=(tags)
     self.tags = tags.split(", ").map do |name|
       Tag.where(name: name.strip).first_or_create!
     end
