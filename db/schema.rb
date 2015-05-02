@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150501215311) do
     t.integer  "user_id"
     t.integer  "voteable_id"
     t.string   "voteable_type"
+    t.integer  "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
