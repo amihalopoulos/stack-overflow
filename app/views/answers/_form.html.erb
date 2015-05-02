@@ -1,0 +1,5 @@
+<%= form_for [@question, @answer], url: question_answer_path(@question, @answer) do |f| %>
+  <p><%= f.label "Content" %></p>
+  <p><%= f.text_field :content %></p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>
