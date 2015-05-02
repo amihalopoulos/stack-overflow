@@ -1,9 +1,14 @@
 <div class="question">
   <h3> Title: <%= @question.title %> </h3>
+  <%= link_to "Vote", votes_path(:question_id => @question.id), method: :post %>
   <ul>
     <li>Content: <%= @question.content %></li>
     <li>
-      Respones: <br> <%= render @question.responses %>
+      Tags:
+      <%# @question.tags.each do |tag| %>
+        <%#= tag.name %>
+      <%# end %>
+      Responses: <br> <%= render @question.responses %>
     </li>
     <%= link_to "New Response", new_response_path(question_id: @question) %>
     <li>

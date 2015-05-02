@@ -1,7 +1,21 @@
 <%= form_for :question, url: questions_path do |f| %>
-  <%= f.text_field :title %>
-  <br>
-  <%= f.text_field :content %>
-  <br>
+<div class="form-group">
+      <%= f.label :title, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :title, placeholder: "Generally Speaking, what's your specific problem?", class: 'form-control' %>
+      </div>
+    </div>
+  <div class="form-group">
+      <%= f.label :content, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :content, placeholder: "Let us dig deeper into your issue. Remember to be actionable specific and kind!", class: 'form-control' %>
+      </div>
+    </div>
+  <!-- <div class="form-group">
+      <%= f.label :tags, class: 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :all_tags, placeholder: "Swaggerate your question with tags, separated by commas", class: 'form-control' %>
+      </div>
+    </div> -->
   <%= f.submit 'submit' %>
 <% end %>
