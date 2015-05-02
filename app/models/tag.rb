@@ -1,4 +1,5 @@
 class Tag < ActiveRecord::Base
-	belongs_to :question
+	has_many :question_tags
+	has_many :questions, through: :question_tags
 	validates :question, presence: true
 end
