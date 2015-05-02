@@ -5,3 +5,32 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+
+.container {
+  margin-top: 50px;
+}
+
+.all-questions{
+	list-style: none;
+}
+
+.question-link{
+	height:40px;
+	border-bottom: 1px solid rgb(220,220,220);	
+}
+
+.question-textarea {
+  height: 100px;
+}
+
+.question-title {
+  font-size: 1.2em;
+}
+
+.question-container {
+  border-top: 1px solid gray;
+}
+
+.question-badge {
+  font-size: 1.2em;
+  margin-top: 5px;
