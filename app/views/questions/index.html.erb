@@ -1,6 +1,10 @@
   <ul class="all-questions">
     <% @questions.each do |question| %>
-    <li class="question-link"> Votes: <%=question.votes.count %> | Answers: <%= question.answers.count %> <%= link_to question.title, question_path(question.id) %>
+    <li class="question-link">
+     	<%=question.votes.count %> Votes
+     	<%= question.answers.count %> Answers 
+     	<%= question.views %> views
+     	<%= link_to question.title, question_path(question.id) %>
     </li>
     <% end %>
   </ul>
