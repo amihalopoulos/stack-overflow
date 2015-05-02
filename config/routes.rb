@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
 
   resources :responses
+  resources :votes, only: [:create]
 
   get 'signin' => 'auth#signin_form'
   post 'signin' => 'auth#signin'
