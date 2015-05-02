@@ -10,27 +10,32 @@
   margin-top: 50px;
 }
 
-.all-questions{
+.all-questions {
 	list-style: none;
+	padding-left: 0;	
 }
 
-.question-link{
+.all-questions:first-child{
+	border-top: 1px solid rgb(220,220,220);	
+}
+
+.question-container {
 	height:40px;
 	border-bottom: 1px solid rgb(220,220,220);	
 }
 
+.question-stats {
+
+}
+
 .question-textarea {
-  height: 100px;
+  height: 10px;
 }
 
 .question-title {
-  font-size: 1.2em;
+  font-size: 1.6em;
 }
 
-.question-container {
-  border-top: 1px solid gray;
-}
-
-.question-badge {
+/*.question-badge {
   font-size: 1.2em;
-  margin-top: 5px;
+  margin-top: 5px;*/
