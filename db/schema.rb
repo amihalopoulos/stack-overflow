@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501215311) do
+ActiveRecord::Schema.define(version: 20150502203506) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,15 @@ ActiveRecord::Schema.define(version: 20150501215311) do
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type"
+    t.integer  "impressionable_id"
+    t.integer  "user_id"
+    t.string   "ip_address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -63,6 +72,7 @@ ActiveRecord::Schema.define(version: 20150501215311) do
     t.integer  "user_id"
     t.integer  "voteable_id"
     t.string   "voteable_type"
+    t.integer  "value"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end

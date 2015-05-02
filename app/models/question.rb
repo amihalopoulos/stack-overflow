@@ -5,9 +5,18 @@ class Question < ActiveRecord::Base
   has_many :tags
   has_many :question_tags
   has_many :tags, through: :question_tags
+  has_many :impressions, as: :impressionable
 
   has_many :responses, as: :responsible
   validates :title, :content, presence: true
+
+  def impression_count
+    impressions.size
+  end
+
+  def unique_impression_count
+    impressions.group(:ip_address).size
+  end
 
   def all_tags=(tags)
     self.tags = tags.split(", ").map do |name|
