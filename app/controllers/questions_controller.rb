@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+before_filter :log_impression, :only=> [:show]
 
   before_action :find_question, only: [:show, :edit, :update, :destroy]
 
@@ -40,6 +41,12 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     redirect_to questions_path
+  end
+
+  def log_impression
+    @question = Question.find(params[:id])
+
+    @question.impressions.create(ip_address: request.remote_ip,user_id:current_user.id)
   end
 
   private
