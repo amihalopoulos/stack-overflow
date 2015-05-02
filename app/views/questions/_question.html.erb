@@ -1,6 +1,7 @@
 <div class="question">
   <h3> Title: <%= @question.title %> </h3>
-  <%= link_to "Vote", votes_path(:question_id => @question.id), method: :post %>
+  <%= link_to "Upvote", votes_path(:question_id => @question.id, :value => 1), method: :post %>
+  <%= link_to "Downvote", votes_path(:question_id => @question.id, :value => -1), method: :post %>
   <ul>
     <li>Content: <%= @question.content %></li>
     <li>
