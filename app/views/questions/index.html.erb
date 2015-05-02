@@ -1,11 +1,25 @@
-<div class="home">
-  <h1> Swag Overflow </h1>
-  <ul>
-    <% @questions.each do |question| %>
-    <li> <%= link_to question.title, question_path(question.id) %> Votes: <%=question.votes.count %> | Answers: <%= question.answers.count %>
-    </li>
-    <% end %>
-  </ul>
+<h3>Top Questions</h3>
+<div class="all-questions">
+  <% @questions.each do |question| %>
+    <div class="question-container row">
+    	<div class="col-md-12">
+    	<span class="question-stats col-md-3">
+    		<span class="stat col-md-3">
+	     	<%=question.votes.count %> Votes
+	     	</span>
+	     	<span class="stat col-md-3">
+	     		<%= question.answers.count %> Answers 
+	     	</span>
+	     	<span class="stat col-md-3">
+	     		<%= question.views %> views
+	      </span>
+     	</span>
+	     	<div class=" question-title col-md-9">
+	     		<%= link_to question.title, question_path(question.id) %>
+	     	</div>
+     	</div>
+    </div>
+  <% end %>
 </div>
 
 
