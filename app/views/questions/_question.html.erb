@@ -1,5 +1,6 @@
 <div class="question">
   <h3> Title: <%= @question.title %> </h3>
+  <%= link_to "Vote", votes_path(:question_id => @question.id), method: :post %>
   <ul>
     <li>Content: <%= @question.content %></li>
     <li>

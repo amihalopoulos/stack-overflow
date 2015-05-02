@@ -2,6 +2,7 @@
   <ul>
     <li>
       <%= answer.content %> | Posted by: <%= link_to answer.user.name, user_path(answer.user) %> | Votes: <%= answer.votes.count %>
+      <%= link_to "Vote", votes_path(:answer_id => answer.id), method: :post %>
       <br>
       <% if current_user == answer.user %>
       <%= button_to "Edit", edit_question_answer_path(@question, answer), :method => :get %>
