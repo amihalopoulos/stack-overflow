@@ -9,6 +9,7 @@ before_filter :log_impression, :only=> [:show]
 
   def show
     @question = Question.find(params[:id])
+    @questions = Question.where(user_id: @question.user.id)
   end
 
   def new
