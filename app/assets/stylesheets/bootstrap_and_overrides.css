@@ -25,7 +25,6 @@
 }
 
 .question-stats {
-
 }
 
 .question-textarea {
@@ -33,5 +32,25 @@
 }
 
 .question-title {
-  font-size: 1.4em;
+  font-size: 1.8em;
+  border-bottom: 1px solid rgb(220,220,220)
+}
+
+.question{
+
+}
+
+.question li {
+  list-style: none;
+}
+
+.question .content{
+  margin: 30px 0 30px 0;
+  border-bottom: 1px solid rgb(220,220,220)
+}
+
+.responses{
+  color: rgb(150,150,150);
+  padding: 5px;
+  border-bottom: 1px solid rgb(220,220,220)
 }
