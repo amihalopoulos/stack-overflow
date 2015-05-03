@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+
   def new
     if current_user
       @question = Question.find(params[:question_id])
