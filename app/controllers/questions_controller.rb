@@ -2,6 +2,7 @@ class QuestionsController < ApplicationController
 before_filter :log_impression, :only=> [:show]
 
   before_action :find_question, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
 
   def index
     @questions = Question.all
@@ -13,6 +14,7 @@ before_filter :log_impression, :only=> [:show]
   end
 
   def new
+    redirect_to signin_path if !current_user
   end
 
   def edit
@@ -59,5 +61,6 @@ before_filter :log_impression, :only=> [:show]
   def question_params
     params.require(:question).permit(:title, :content, :user_id)
   end
+
 
 end
