@@ -1,7 +1,7 @@
 <div class="answers">
   <ul>
     <li>
-      <%= answer.content %> | Posted by: <%= link_to answer.user.name, user_path(answer.user) %> |
+      <%= answer.content %> | Posted by: <%= link_to answer.user.name, user_path(answer.user) %> | Rep: <%= rep_calculator(answer.user.id) %>
       <% count = 0 %>
       <% answer.votes.each do |vote| %>
         <% count += vote.value %>

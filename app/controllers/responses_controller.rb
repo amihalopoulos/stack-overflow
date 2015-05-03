@@ -1,4 +1,5 @@
 class ResponsesController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
 
   def new
     if current_user && params[:question_id]

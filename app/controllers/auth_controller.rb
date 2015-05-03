@@ -1,5 +1,4 @@
 class AuthController < ApplicationController
-
   def signin_form
   end
 
@@ -7,7 +6,7 @@ class AuthController < ApplicationController
     user = User.find_by(name: params[:user][:name])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to return_point, notice: "You are now signed in"
     else
       flash[:error] = "Bad username or password"
       redirect_to signin_path
