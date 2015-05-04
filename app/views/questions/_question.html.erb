@@ -7,7 +7,7 @@
   <ul>
     <li class="content"><%= @question.content %></li>
      <%= render @question.responses %>
-    <%= link_to "New Response", new_response_path(question_id: @question) %>
+    <li><%= link_to "New Response", new_response_path(question_id: @question) %></li>
     <li>
       Answers: <br>
       <% if @question.best_answer %>
