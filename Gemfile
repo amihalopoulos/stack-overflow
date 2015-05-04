@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.1.5'
 gem "twitter-bootstrap-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -31,7 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+  gem 'faker'
 group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
@@ -42,6 +42,6 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'factory_girl'
-  gem 'faker'
+
 end
 

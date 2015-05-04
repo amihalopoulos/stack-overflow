@@ -1,14 +1,12 @@
 <div class="question">
-  <h3> Title: <%= @question.title %> </h3>
+  <div class="question-title"> Title: <%= @question.title %> </div class="question-title">
   <p> <%= @question.user.name %> | Rep: <%= rep_calculator(@question.user.id) %>
   </p>
   <%= link_to "Upvote", votes_path(:question_id => @question.id, :value => 1), method: :post %>
   <%= link_to "Downvote", votes_path(:question_id => @question.id, :value => -1), method: :post %>
   <ul>
-    <li>Content: <%= @question.content %></li>
-    <li>
-      Respones: <br> <%= render @question.responses %>
-    </li>
+    <li class="content"><%= @question.content %></li>
+     <%= render @question.responses %>
     <%= link_to "New Response", new_response_path(question_id: @question) %>
     <li>
       Answers: <br>
@@ -20,4 +18,10 @@
     </li>
     <%= link_to "New Answer", new_question_answer_path(@question) %>
   </ul>
+     <span class="answer-header"> <%=@question.answers.count %> Answers</span>
+    <ul class="answers">
+      <%= render @question.answers %>
+    </ul>
+    <%= link_to "New Answer", new_question_answer_path(@question) %>
+
 </div>

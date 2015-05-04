@@ -49,7 +49,7 @@ before_filter :log_impression, :only=> [:show]
   def log_impression
     @question = Question.find(params[:id])
 
-    @question.impressions.create(ip_address: request.remote_ip,user_id: (current_user ? current_user.id : nil))
+    @question.impressions.find_or_create_by(ip_address: request.remote_ip,user_id: (current_user ? current_user.id : nil))
   end
 
   private
