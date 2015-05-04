@@ -7,12 +7,18 @@
   <ul>
     <li class="content"><%= @question.content %></li>
      <%= render @question.responses %>
-    <%= link_to "New Response", new_response_path(question_id: @question) %>
+    <li><%= link_to "New Response", new_response_path(question_id: @question) %></li>
+
   </ul>
-     <span class="answer-header"> <%=@question.answers.count %> Answers</span>
-    <ul class="answers">     
-      <%= render @question.answers %>
-    </ul>
-    <%= link_to "New Answer", new_question_answer_path(@question) %>
+
+  <span class="answer-header"> <%=@question.answers.count %> Answers</span>
+  <ul class="answers">
+    <% if @question.best_answer %>
+      **Best Answer** <br> <%= render @question.answers.where(id: @question.best_answer) %>
+    <% end %>
+    <% answers =  @question.answers.where.not(id: @question.best_answer)%>
+    <%= render answers %>
+  </ul>
+  <%= link_to "New Answer", new_question_answer_path(@question) %>
 
 </div>

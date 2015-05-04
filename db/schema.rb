@@ -34,12 +34,13 @@ ActiveRecord::Schema.define(version: 20150502203506) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.string   "title",                  null: false
-    t.text     "content",                null: false
-    t.integer  "views",      default: 0
-    t.integer  "user_id",                null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "title",                   null: false
+    t.text     "content",                 null: false
+    t.integer  "best_answer"
+    t.integer  "views",       default: 0
+    t.integer  "user_id",                 null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "responses", force: :cascade do |t|
