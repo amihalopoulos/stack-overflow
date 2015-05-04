@@ -9,7 +9,7 @@
           <% question.votes.each do |vote| %>
             <% count += vote.value %>
           <% end %>
-          Votes: <%=  count %>
+          <%= count %> Votes
 	     	</span>
 	     	<span class="stat col-md-3">
 	     		<%= question.answers.count %> Answers
@@ -18,7 +18,7 @@
 	     		<%= question.unique_impression_count.values.join %> views
 	      </span>
      	</span>
-	     	<div class=" question-title col-md-9">
+	     	<div class=" question-link col-md-9">
 	     		<%= link_to question.title, question_path(question.id) %>
 	     	</div>
      	</div>
