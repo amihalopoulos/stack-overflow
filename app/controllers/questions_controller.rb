@@ -59,7 +59,7 @@ before_filter :log_impression, :only=> [:show]
   end
 
   def question_params
-    params.require(:question).permit(:title, :content, :user_id)
+    params.require(:question).permit(:title, :content, :user_id, :best_answer)
   end
 
 
