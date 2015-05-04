@@ -11,7 +11,12 @@
     </li>
     <%= link_to "New Response", new_response_path(question_id: @question) %>
     <li>
-      Answers: <br> <%= render @question.answers %>
+      Answers: <br>
+      <% if @question.best_answer %>
+        **Best Answer** <br> <%= render @question.answers.where(id: @question.best_answer) %>
+      <% end %>
+      <% answers =  @question.answers.where.not(id: @question.best_answer)%>
+      <%= render answers %>
     </li>
     <%= link_to "New Answer", new_question_answer_path(@question) %>
   </ul>
